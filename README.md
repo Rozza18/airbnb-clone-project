@@ -1,17 +1,17 @@
-## airbnb-clone-project
+# airbnb-clone-project
 The Airbnb Clone Project is a comprehensive, real-world application designed to simulate the development of a robust booking platform like Airbnb. It involves a deep dive into full-stack development, focusing on backend systems, database design, API development, and application security.
 
 ---
-## Overview of the Project
+# Overview of the Project
 
-# Objective
+## Objective
 - The backend for the project is designed to provide a robust and scalable foundation for managing user interactions, property listings, bookings, and payments.
 - The backend also supports various functionalities required to mimic the core features of Airbnb
 - ensuring a smooth experience for users and hosts
 
 ---
 
-# Project Goals
+## Project Goals
 1. **User Management** -- implement a secure system for user registration, authentication, and profile management.
 2. **Property Management** -- Develop features for property listing creation, updates, and retrieval.
 3. **Booking System** -- Create a booking mechanism for users to reserve properties and manage booking details.
@@ -21,7 +21,7 @@ The Airbnb Clone Project is a comprehensive, real-world application designed to 
 
 ---
 
-# Technology Stack
+## Technology Stack
 **Django** -- A high-level Python web framework used for building the RESTful API.
 **Django REST Framework** -- Provides tools for creating and managing RESTful APIs.
 **PostgreSQL** -- A powerful relational database used for data storage.
@@ -33,7 +33,7 @@ The Airbnb Clone Project is a comprehensive, real-world application designed to 
 
 ---
 
-# Team Roles
+## Team Roles
 - **Product Manager**  
   Owns product vision, defines scope, prioritizes features, and aligns timelines with stakeholders.
 
@@ -56,3 +56,61 @@ The Airbnb Clone Project is a comprehensive, real-world application designed to 
   Threat models APIs, enforces authN/authZ, reviews dependencies, scans images, and handles incident response playbooks.
 
 ---
+
+## Database Design
+### Entities & Key Fields
+1. **User**:
+   - id (UUID)
+   - email (unique)
+   - password_hash
+   - full_name
+   - role {host, guest, admin}
+   - created_at
+   - updated_at
+   - **Relations** -- has many `Property`, `Booking`, `Review`,and `Payment`
+
+2. **Property**
+   - id (UUID)
+   - host_id (FK->User)
+   - title
+   - description
+   - adderss
+   - price_per_night
+   - max_guests
+   - amenities (JSON)
+   - status {available, taken}
+   - created_at
+   - **Relations** -- belongs to a `User`(host), and has many `Booking`
+
+3. **Booking**
+   - id (UUID)
+   - guest_id (FK->User)
+   - property_id (FK->Property)
+   - check_in (date)
+   - check_out(date)
+   - guests_count
+   - status {confirmed, pending, canceled, completed}
+   - total_price
+   - created_at
+   - updated_at
+   - **Relations** -- belongs to a User(guest) and a `Property`, and has many `Payment`
+
+4. **Payment**
+   - id (UUID)
+   - booking_id (FK->Booking)
+   - payer_id (FK->User)
+   - provider {stripe, paybal, ..}
+   - amount
+   - currency
+   - status {initiated, succeeded, failed, refunded}
+   - provided_ref
+   - created_at
+
+5. **Review**
+   - id (UUID)
+   - reviewer_id (FK->User)
+   - property_id (FK->Property)
+   - rating (1-5)
+   - comment
+   - created_at
+   - **constraints** -- one review per `author_id` + `property_id` per completed stay
