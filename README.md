@@ -1,12 +1,15 @@
 ## airbnb-clone-project
 The Airbnb Clone Project is a comprehensive, real-world application designed to simulate the development of a robust booking platform like Airbnb. It involves a deep dive into full-stack development, focusing on backend systems, database design, API development, and application security.
 
+---
 ## Overview of the Project
-
+---
 # Objective
 - The backend for the project is designed to provide a robust and scalable foundation for managing user interactions, property listings, bookings, and payments.
 - The backend also supports various functionalities required to mimic the core features of Airbnb
 - ensuring a smooth experience for users and hosts
+
+---
 
 # Project Goals
 1. **User Management** -- implement a secure system for user registration, authentication, and profile management.
@@ -15,7 +18,9 @@ The Airbnb Clone Project is a comprehensive, real-world application designed to 
 4. **Payment Processing** -- Integrate a payment system to handle transactions and record payment details.
 5. **Review System** -- Allow users to leave reviews and ratings for properties.
 6. **Data Optimization** -- Ensure efficient data retrieval and storage through database optimizations.
-   
+
+---
+
 # Tech Stack
 **Django** -- A high-level Python web framework used for building the RESTful API.
 **Django REST Framework** -- Provides tools for creating and managing RESTful APIs.
@@ -25,3 +30,29 @@ The Airbnb Clone Project is a comprehensive, real-world application designed to 
 **Redis** -- Used for caching and session management.
 **Docker** -- Containerization tool for consistent development and deployment environments.
 **CI/CD Pipelines** -- Automated pipelines for testing and deploying code changes.
+
+---
+
+# Team Roles
+- **Product Manager**  
+  Owns product vision, defines scope, prioritizes features, and aligns timelines with stakeholders.
+
+- **Tech Lead / Architect**  
+  Defines system architecture, patterns, and standards. Reviews critical design and code. Guides scalability and security decisions.
+
+- **Backend Developer**  
+  Implements API endpoints, business logic, integrations (payments, email), and unit/integration tests. Maintains code quality.
+
+- **Database Administrator (DBA)**  
+  Designs schema, manages indexing, migrations, backups/restore, performance tuning, and data retention strategies.
+
+- **DevOps / Platform Engineer**  
+  Owns CI/CD, infrastructure as code, observability, scaling, secrets, Docker images, and environments.
+
+- **QA / Test Engineer**  
+  Designs test plans, writes automated tests, validates releases, and enforces quality gates in CI.
+
+- **Security Engineer (shared or part-time role)**  
+  Threat models APIs, enforces authN/authZ, reviews dependencies, scans images, and handles incident response playbooks.
+
+---
